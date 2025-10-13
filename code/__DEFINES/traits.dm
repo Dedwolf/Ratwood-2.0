@@ -114,6 +114,7 @@
 #define TRAIT_PSYDONIAN_GRIT "Psydonian Grit" // Pain Tolerance. Through faith, ENDURE.
 #define TRAIT_PSYDONITE "Psydonite's Devotion" // Anti-Miracles on a selective basis, anastasis / cure rot still apply. Slow passive wound healing while you have blood.
 #define TRAIT_BLACKBAGGER "Apprehension Techniques" // Capable of using Garrotes and Blackbags. Apprehension techniques.
+#define TRAIT_RESONANCE "Resonance Caster"//Casting miracles will buff nearby miraclists. Or, would, had I finished it. Instead it applies fortify in an AoE. - Carl
 
 // PATRON GOD CURSES
 
@@ -398,7 +399,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_HELLSPAWN = span_warning("My bloodline affords me an inherent resistance to catching ablaze."),
 	TRAIT_WING_BOUND = span_info("The wings upon my back allow me to glide. Poorly. Falls will be less painful, but still not ideal."),
 	TRAIT_DWARF_REPAIR = span_info("Never again will there be a people like ours. Repairs come easy to me."),
-	TRAIT_DRUNK_HEALING = span_info("A little drinking never hurt!")
+	TRAIT_DRUNK_HEALING = span_info("A little drinking never hurt!"),
+	TRAIT_RESONANCE = span_suppradio("My miracles will <b><u>fortify</u></b> others nearby.")
 ))
 
 // trait accessor defines
