@@ -12,7 +12,6 @@
 	but form deep connections with those they do. In recent years they have been driven from the forests by unrest and the \
 	inevitable spread of the rot and pressed into cohabitation with races they'd deem lesser.<br>\
 	(+1 Constitution, +1 Intelligence, Sleuth Trait)"
-	
 	expanded_desc = "Lupians live under elective monarchies, forms of feudalism where the king of a pack is chosen from, and by, the military council. \
 	The leader of the pack is a philosopher king, a paragon of virtue and one who should inspire awe and loyalty among the population \
 	while the real power is held by the military leadership. Should a king fail his people it is not uncommon for the entire kingdom \
@@ -25,7 +24,7 @@
 	nation states under the Vakran name into chaos. Vassals left, either becoming free or aligning themselves with the neighboring \
 	Frostfell or Felsaad, while others faced internal strife, civils wars between those who believed the Vakran name still held strong, \
 	and those who saw the crown tainted, even the military council decimated itself between duels and the pitting of coups."
-	skin_tone_wording = "Pack"
+	skin_tone_wording = "Ascendance"
 	species_traits = list(
 		MUTCOLORS,
 		EYECOLOR,
@@ -96,7 +95,7 @@
 		/datum/customizer/organ/penis/anthro,
 		/datum/customizer/organ/breasts/animal,
 		/datum/customizer/organ/vagina/animal,
-	)
+		)
 	body_marking_sets = list(
 		/datum/body_marking_set/none,
 		/datum/body_marking_set/belly,
@@ -108,7 +107,6 @@
 	body_markings = list(
 		/datum/body_marking/flushed_cheeks,
 		/datum/body_marking/eyeliner,
-		/datum/body_marking/wolf,
 		/datum/body_marking/plain,
 		/datum/body_marking/belly,
 		/datum/body_marking/bellyslim,
@@ -157,20 +155,15 @@
 	. = ..()
 	UnregisterSignal(C, COMSIG_MOB_SAY)
 
-/datum/species/lupian/get_skin_list()
+/datum/species/lupian/get_skin_list()		//This is completely, utterly deprecated as far as I know.
 	return list(
-		"Vakran" = "271f1b",
-		"Lanarain" = "271f1c",
-		"Frostfell" = "271f1d",
-		"Varghelm" = "271f1e",
-		"Dawnbreak" = "271f1f",
-		"Bloodmoon" = "271f2a",
-		"Felsaad" = "271f2b",
-		"Hizmut" = "271f2c",
-		"Langqan" = "271f2d",
-		"a tangled lineage" = "271f2e",
-		"disputed" = "271f2f",
-		"bastardized" = "271f3a"
+		"Forester" = "271f1b",
+		"Arctic" = "271f1c",
+		"Desert-dweller" = "271f1d",
+		"City Cur" = "271f1e",
+		"Coaster" = "271f1f",
+		"Islander" = "271f2a",
+		"Bastard" = "271f2b"
 	) // This is a dirty hack that stops me using mob defines, the colors do not do anything, it just a var that relates to their pack name on examine
 
 /datum/species/lupian/get_random_features()

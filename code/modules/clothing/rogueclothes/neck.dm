@@ -334,8 +334,8 @@
 	update_icon()		
 
 /obj/item/clothing/neck/roguetown/gorget/forlorncollar
-	name = "vreccale"
-	desc = "Nature knows not of mercy."
+	name = "forlorn collar"
+	desc = "A old reminder."
 	icon_state = "iwolfcollaralt"
 
 /obj/item/clothing/neck/roguetown/gorget/steel
