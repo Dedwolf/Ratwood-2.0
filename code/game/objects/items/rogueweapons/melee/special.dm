@@ -91,7 +91,7 @@
 				return
 
 			if(!(H in SStreasury.bank_accounts))
-				to_chat(user, span_danger("The target must have a Meister account!"))
+				to_chat(user, span_danger("The target must have a Nervelock account!"))
 				return
 
 			if(istype(user.used_intent, /datum/intent/lord_electrocute))
