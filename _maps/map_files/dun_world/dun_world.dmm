@@ -90299,7 +90299,8 @@
 "vYP" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/fox{
 	aggressive = 0;
-	name = "Mimi the fox"
+	name = "Mimi the fox";
+	density = 0
 	},
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/dwarfin)
