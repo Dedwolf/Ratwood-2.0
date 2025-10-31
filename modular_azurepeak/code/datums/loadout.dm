@@ -379,6 +379,10 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	name = "White Foreign Shirt"
 	path = /obj/item/clothing/suit/roguetown/shirt/undershirt/eastshirt2
 //PANTS
+/datum/loadout_item/loincloth
+	name = "Loincloth"
+	path = /obj/item/clothing/under/roguetown/loincloth
+	
 /datum/loadout_item/tights
 	name = "Cloth Tights"
 	path = /obj/item/clothing/under/roguetown/tights/black
@@ -408,10 +412,6 @@ GLOBAL_LIST_EMPTY(loadout_items)
 /datum/loadout_item/wrappings
 	name = "Handwraps"
 	path = /obj/item/clothing/wrists/roguetown/wrappings
-
-/datum/loadout_item/loincloth
-	name = "Loincloth"
-	path = /obj/item/clothing/under/roguetown/loincloth
 
 /datum/loadout_item/spectacles
 	name = "Spectacles"
