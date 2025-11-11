@@ -309,6 +309,7 @@
 #define COMSIG_MACHINERY_POWER_RESTORED "machinery_power_restored"	//from base power_change() when power is restored
 
 // /obj/item signals
+#define COMSIG_ITEM_QUENCHED "item_quenched"					//from base of /obj/item/roguebin/attackby() : (obj/item/I, mob/user, params)
 #define COMSIG_ITEM_ATTACK "item_attack"						//from base of obj/item/attack(): (/mob/living/target, /mob/living/user)
 #define COMSIG_ITEM_ATTACK_SUCCESS "item_attack_success"		//from base of obj/item/attack(): (/mob/living/target, /mob/living/user) upon successful attacking
 #define COMSIG_ITEM_ATTACK_SELF "item_attack_self"				//from base of obj/item/attack_self(): (/mob)
@@ -469,3 +470,10 @@
 // heretic signals
 #define COMSIG_TRAIT_GAIN "trait_gain"    // (trait, source)
 #define COMSIG_TRAIT_LOSS "trait_loss"    // (trait, source)				//from monkey CtrlClickOn(): (/mob)
+
+//S Smithing
+
+#define COMSIG_ITEM_PLACED_ON_ANVIL "item_placed_on_anvil"
+#define COMSIG_ITEM_REMOVED_FROM_ANVIL "item_removed_from_anvil"
+#define COMSIG_ITEM_HAMMERED_ON_ANVIL "item_hammered_on_anvil"
+#define COMSIG_ITEM_ADDED_TO_FORGING "item_added_to_forging"

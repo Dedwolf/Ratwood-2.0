@@ -212,7 +212,10 @@
 	if(!isliving(src) || !isliving(L))
 		return
 	if(!client)
-		return TRUE
+		// NPCs without clients use simple directional vision cone
+		if(L.InCone(src, src.dir))
+			return TRUE
+		return FALSE
 	if(hud_used && hud_used.fov)
 		if(hud_used.fov.alpha != 0)
 			var/list/mobs2hide = list()
@@ -291,7 +294,7 @@
 			var/datum/species/dullahan/dullahan = H.dna.species
 			head = dullahan.my_head
 
-		var/cyclops_left = HAS_TRAIT(src, TRAIT_CYCLOPS_LEFT) 
+		var/cyclops_left = HAS_TRAIT(src, TRAIT_CYCLOPS_LEFT)
 		var/cyclops_right = HAS_TRAIT(src, TRAIT_CYCLOPS_RIGHT)
 
 		if(head)

@@ -81,6 +81,7 @@
 #define TRAIT_WING_BOUND "Wing Bound"//Welcome back, OldAcrobat. Offbalance (12s) and stun(2s) from falling 1Z, but no damage.
 #define TRAIT_DWARF_REPAIR "Dwarvish Knowledge"//Squire Repair, but very slightly worse. Only for needle / hammer.
 #define TRAIT_DRUNK_HEALING "Drunk Healing"//Having anything with booze power of 25 or more in your system slowly heals you.
+#define TRAIT_SIMPLESPEECH "Simple Speech" // Can only say the 1000 most common English-language words; other words get modified
 
 //Hearthstone port (Tracking)
 #define TRAIT_PERFECT_TRACKER "Perfect Tracker" //Will always find any tracks and analyzes them perfectly.
@@ -257,7 +258,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_DODGEEXPERT = span_info("I can dodge easily while only wearing light armor."),
 	TRAIT_MAGEARMOR = span_info("My magics can protect me from a blow every so often."),
 	TRAIT_DECEIVING_MEEKNESS = span_info("People look at me and think I am a weakling. They are mistaken. I've learned how to hide my vices and true beliefs from others."),
-	TRAIT_CRITICAL_RESISTANCE = "I am resistant to wounds that would be life threatening to others.",
+	TRAIT_CRITICAL_RESISTANCE = span_info("My constitution is iron-clad. My lifeblood flows slowly, I can resist the first few criitical wounds that would fell others, but repeated punishment will overwhelm my defenses."),
 	TRAIT_CRITICAL_WEAKNESS = span_danger("I am weak to wounds that others could survive."),
 	TRAIT_MANIAC_AWOKEN = span_danger("I am <b>WAKING UP</b> and the sheeple know this. They will resist."),
 	TRAIT_INFINITE_STAMINA = "I have boundless energy, I will never tire.",
@@ -400,7 +401,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_WING_BOUND = span_info("The wings upon my back allow me to glide. Poorly. Falls will be less painful, but still not ideal."),
 	TRAIT_DWARF_REPAIR = span_info("Never again will there be a people like ours. Repairs come easy to me."),
 	TRAIT_DRUNK_HEALING = span_info("A little drinking never hurt!"),
-	TRAIT_RESONANCE = span_suppradio("My miracles will <b><u>fortify</u></b> others nearby.")
+	TRAIT_RESONANCE = span_suppradio("My miracles will <b><u>fortify</u></b> others nearby."),
+	TRAIT_SIMPLESPEECH = span_info("I can not say hard words.")
 ))
 
 // trait accessor defines

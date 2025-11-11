@@ -12,7 +12,7 @@
 	if(user.mmb_intent)
 		return ..()
 	// Maybe call target.MiddleMouseDrop_T() instead, may have side effects and so opted not to.
-	
+
 	if(!istype(dragged))
 		return
 	if(dragged != user)
@@ -40,7 +40,7 @@
 	var/list/acceptable = list()
 	if(!user_species.headless)
 		return FALSE
-	
+
 	var/datum/sex_controller/target_con = target.sexcon
 	var/check_con = FALSE
 	if(target.is_holding(src))
@@ -49,7 +49,7 @@
 		// However at that point they have bigger problems.
 		acceptable += holding_bodypart.aux_zone
 		check_con = TRUE
-	
+
 	if(get_turf(src) == get_turf(target))
 		check_con = TRUE
 
@@ -65,7 +65,7 @@
 
 	if(user.cmode || user.zone_selected != BODY_ZONE_HEAD)
 		return ..()
-	
+
 	var/datum/species/dullahan/target_species = target.dna.species
 	if(!target_species.headless)
 		return ..()
@@ -97,7 +97,7 @@
 // Remove head.
 /datum/species/dullahan/help(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	// Only do it if the precise selection is the head, to avoid mistakes.
-	if(target != user || user.zone_selected != BODY_ZONE_HEAD) 
+	if(target != user || user.zone_selected != BODY_ZONE_HEAD)
 		return ..()
 
 	if(headless)
@@ -191,7 +191,7 @@
 		item.attack(original_owner, user)
 	else
 		..()
-	
+
 // Kills Dullahan if their brain is dropped from the head. Same in organ_manipulation.
 // Could track in forceMove() but this seems more reliable. Change would not take much.
 /obj/item/bodypart/head/dullahan/drop_organs(mob/user, violent_removal)
@@ -204,7 +204,7 @@
 	var/datum/species/dullahan/user_species = user_dullahan.dna.species
 	user_species.soul_light_off()
 	user_species.headless = FALSE
-	
+
 	for(var/item_slot in head_items)
 		var/obj/item/worn_item = head_items[item_slot]
 		if(worn_item)
@@ -268,7 +268,7 @@
 
 		// Clear all grabs if no aggressive grab.
 		grabbedby.Cut()
-	
+
 	if(!special)
 		insert_worn_items()
 
@@ -399,9 +399,9 @@
 		if(user.goodluck(2))
 			dam += 10
 	if((bclass in GLOB.dislocation_bclasses) && (total_dam >= max_damage))
-		used = round(damage_dividend * 20 + (dam / 3) - 10 * resistance, 1)
+		used = round(damage_dividend * 20 + (dam / 3))
 	if(bclass in GLOB.fracture_bclasses)
-		used = round(damage_dividend * 20 + (dam / 3) - 10 * resistance, 1)
+		used = round(damage_dividend * 20 + (dam / 3))
 		if(HAS_TRAIT(src, TRAIT_BRITTLE))
 			used += 20
 		if(user)
@@ -435,7 +435,7 @@
 				attempted_wounds += dislocation_type
 			attempted_wounds += fracture_type
 	if(bclass in GLOB.artery_bclasses)
-		used = round(damage_dividend * 20 + (dam / 3) - 10 * resistance, 1)
+		used = round(damage_dividend * 20 + (dam / 3))
 		if(user)
 			if(bclass == BCLASS_CHOP)
 				if(istype(user.rmb_intent, /datum/rmb_intent/strong))
@@ -586,7 +586,7 @@
 					for(var/mob/living/MH in viewers(world.view, speaker_ceiling))
 						if(M == MH && MH.z == speaker_ceiling?.z)
 							speaker_obstructed = FALSE
-					
+
 				if(!listener_has_ceiling)
 					for(var/mob/living/ML in viewers(world.view, listener_ceiling))
 						if(ML == src && ML.z == listener_ceiling?.z)
@@ -606,7 +606,7 @@
 			var/mob/living/carbon/human/target = AM
 			var/datum/species/dullahan/target_species = target.dna.species
 			tocheck = target_species.headless ? target_species.my_head : AM
-		
+
 		if(eavesdrop_range && get_dist(source, tocheck) > message_range+keenears && !(the_dead[AM]))
 			AM.Hear(eavesrendered, src, message_language, eavesdropping, , spans, message_mode, original_message)
 		else if(highlighted_message)
@@ -641,12 +641,12 @@
 		hidden_slots |= head_item.flags_inv
 		if(transparent_protection)
 			hidden_slots |= head_item.transparent_protection
-	
+
 	var/obj/item/wear_mask = head_items["[SLOT_WEAR_MASK]"]
 	var/list/dat = list()
 
 	dat += "<table>"
-	
+
 	dat += "<tr><td><A href='?src=[REF(src)];item=[SLOT_HEAD]'>[(head_item && !(head_item.item_flags & ABSTRACT)) ? head_item : "<font color=grey>Head</font>"]</A></td></tr>"
 
 	if(hidden_slots & HIDEMASK)
@@ -703,17 +703,17 @@
 		return
 	if((slot == "[SLOT_WEAR_MASK]" && !(target_item.slot_flags & ITEM_SLOT_MASK)) || (slot == "[SLOT_HEAD]" && !(target_item.slot_flags & ITEM_SLOT_HEAD)))
 		return FALSE
-	
+
 	if(head_items[slot])
 		return
 
 	var/close = user.is_holding(src) || get_turf(src) == get_turf(user)
 	if(!close)
 		return
-	
+
 	visible_message(span_notice("[user] tries to put [target_item] on [src]."))
 	to_chat(user, span_notice("I try to put [target_item] on [src]..."))
-	
+
 	if(do_after(user, target_item.equip_delay_other, target = src))
 		if(target_item && (user.is_holding(src) || get_turf(src) == get_turf(user)))
 			user.dropItemToGround(target_item, force = TRUE)

@@ -42,7 +42,7 @@
 	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/tanning, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/labor/fishing, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/labor/butchering, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE)
@@ -193,7 +193,7 @@
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE) // Still a ranger, nerfed. Want more? Go do it yourself, buddy.
+	H.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE) // Still a ranger, nerfed. Want more? Go do it yourself, buddy.
 	H.adjust_skillrank(/datum/skill/labor/butchering, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE) // Won't really equate to much.
 	H.adjust_skillrank(/datum/skill/misc/tracking, 3, TRUE)

@@ -75,6 +75,7 @@
 /obj/structure/closet/dirthole/closed/loot/open()
 	if(!looted)
 		looted = TRUE
+		new /obj/item/natural/bundle/bone/rdm(src)
 		switch(lootroll)
 			if(1)
 				new /mob/living/carbon/human/species/skeleton/npc(mastert)
@@ -323,7 +324,7 @@
 			if(!(locate(/obj/item/natural/stone) in T) || !(locate(/obj/item/natural/clay) in T))
 				if(prob(23))
 					new /obj/item/natural/stone(T)
-				if(prob(18))	
+				if(prob(18))
 					new /obj/item/natural/clay(T)
 	return ..()
 
