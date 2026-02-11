@@ -73,7 +73,6 @@
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/psydonpersist)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/psydonlux_tamper)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/psydonabsolve)
-			H.mind.RemoveSpell(/obj/effect/proc_holder/spell/self/psydonrespite)
 			H.mind.teach_crafting_recipe(/datum/crafting_recipe/roguetown/alchemy/qsabsolution)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
 
@@ -98,7 +97,7 @@
 	id = /obj/item/clothing/ring/signet/silver
 	backpack_contents = list(
 		/obj/item/book/rogue/bibble/psy = 1,
-		/obj/item/natural/bundle/cloth/roll = 2,
+		/obj/item/natural/bundle/cloth/bandage/full = 2,
 		/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 2,
 		/obj/item/paper/inqslip/arrival/abso = 1,
 		/obj/item/needle = 1,
@@ -108,3 +107,5 @@
 		)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_ABSOLVER, start_maxed = TRUE) // PSYDONIAN MIRACLE-WORKER. LUX-MERGING FREEK.
+	if(H.mind)//The below was above, improperly, but is now properly removed.
+		H.mind.RemoveSpell(/obj/effect/proc_holder/spell/self/psydonrespite)//You're not meant to have both this and persist.
