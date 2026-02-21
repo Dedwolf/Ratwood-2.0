@@ -18228,6 +18228,7 @@
 "fra" = (
 /obj/structure/table/wood,
 /obj/item/rogueweapon/whip,
+/obj/item/rogueweapon/surgery/cautery/branding,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/inq/basement)
 "frg" = (
@@ -44165,6 +44166,7 @@
 /area/rogue/outdoors/town/rockhill)
 "mWu" = (
 /obj/item/rope/chain,
+/obj/item/rogueweapon/surgery/cautery/branding,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/cell)
 "mWy" = (
@@ -54037,6 +54039,7 @@
 /obj/item/leash/chain,
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/machinery/light/rogue/wallfire/candle/red/l,
+/obj/item/rogueweapon/surgery/cautery/branding/slave,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/outdoors/exposed/bath/vault{
 	droning_sound_dusk = null;
@@ -58761,6 +58764,7 @@
 /area/rogue/indoors/town/manor/rockhill)
 "rsv" = (
 /obj/machinery/light/rogue/hearth,
+/obj/item/rogueweapon/surgery/cautery/branding/slave,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
 "rsy" = (
@@ -61031,6 +61035,7 @@
 	dir = 1;
 	icon_state = "longtable"
 	},
+/obj/item/rogueweapon/surgery/cautery/branding,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/cell)
 "sbH" = (

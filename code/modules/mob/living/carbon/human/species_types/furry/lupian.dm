@@ -162,13 +162,19 @@
 
 /datum/species/lupian/get_skin_list()		//This is completely, utterly deprecated as far as I know.
 	return list(
-		"Forester" = "271f1b",
-		"Arctic" = "271f1c",
-		"Desert-dweller" = "271f1d",
-		"City Cur" = "271f1e",
-		"Coaster" = "271f1f",
-		"Islander" = "271f2a",
-		"Bastard" = "271f2b"
+		"Vakran" = "271f1b",
+		"Lanarain" = "271f1c",
+		"Frostfell" = "271f1d",
+		"Varghelm" = "271f1e",
+		"Dawnbreak" = "271f1f",
+		"Bloodmoon" = "271f2a",
+		"Felsaad" = "271f2b",
+		"Hizmut" = "271f2c",
+		"Langqan" = "271f2d",
+		"a tangled lineage" = "271f2e",
+		"disputed" = "271f2f",
+		"bastardized" = "271f3a",
+		"Czwarteki" =  "271f3b",
 	) // This is a dirty hack that stops me using mob defines, the colors do not do anything, it just a var that relates to their pack name on examine
 
 /datum/species/lupian/get_random_features()
