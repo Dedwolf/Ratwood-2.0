@@ -10,11 +10,11 @@
 		/datum/species/vulpkanin
 	)
 	outfit = /datum/outfit/job/roguetown/mercenary/forlorn
-	class_select_category = CLASS_CAT_RACIAL
 	min_pq = 2
 	cmode_music = 'sound/music/combat_blackstar.ogg'
+	class_select_category = CLASS_CAT_RACIAL
 	category_tags = list(CTAG_MERCENARY)
-	traits_applied = list(TRAIT_MEDIUMARMOR, TRAIT_NOPAINSTUN, TRAIT_STEELHEARTED) // Intentionally no silver blessing. No pain stun, you don't need to be a Psydonite to endure, not with what you've been through.
+	traits_applied = list(TRAIT_MEDIUMARMOR, TRAIT_NOPAINSTUN)
 	subclass_stats = list(
 		STATKEY_STR = 2,
 		STATKEY_CON = 3,
@@ -45,7 +45,7 @@
 /datum/outfit/job/roguetown/mercenary/forlorn/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
-	neck = /obj/item/clothing/neck/roguetown/gorget/forlorncollar
+	neck = /obj/item/clothing/neck/roguetown/gorget/forlorncollar/steel
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/volfplate
 	pants = /obj/item/clothing/under/roguetown/splintlegs
 	gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
@@ -55,10 +55,10 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/brigandine/light
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
-		/obj/item/rogueweapon/huntingknife,
-		/obj/item/roguekey/mercenary,
-		/obj/item/rogueweapon/scabbard/sheath,
-		/obj/item/storage/belt/rogue/pouch/coins/poor
+		/obj/item/rogueweapon/huntingknife = 1,
+		/obj/item/roguekey/mercenary = 1,
+		/obj/item/rogueweapon/scabbard/sheath = 1,
+		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 		)
 	H.merctype = 5
 
@@ -67,26 +67,33 @@
 
 /datum/outfit/job/roguetown/mercenary/forlorn/choose_loadout(mob/living/carbon/human/H)
 	. = ..()
-	var/weapons = list("Warhammer",	"crossbow", )
+	var/weapons = list("Warhammer & Shield", "Longsword & Shield", "Greataxe")
 	var/weapon_choice = input(H, "Choose your weapon.", "ARMS OF THE ORDER") as anything in weapons
 	switch(weapon_choice)
 		if("Warhammer & Shield")
-			H.equip_to_slot_or_del(new /obj/item/rogueweapon/mace/warhammer/steel/silver, SLOT_BELT_R)
+			H.equip_to_slot_or_del(new /obj/item/rogueweapon/mace/warhammer/steel, SLOT_BELT_R)
 			H.equip_to_slot_or_del(new /obj/item/rogueweapon/shield/heater, SLOT_BACK_L)
 			H.adjust_skillrank_up_to(/datum/skill/combat/maces, SKILL_LEVEL_EXPERT)
 			H.adjust_skillrank_up_to(/datum/skill/combat/shields, SKILL_LEVEL_EXPERT)
-		if("Longsword & Shield")
-			H.equip_to_slot_or_del(new /obj/item/rogueweapon/sword/long/silver, SLOT_BELT_R)
-			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/sword, SLOT_BELT_L)
+		if("Szabla & Shield")
+			H.equip_to_slot_or_del(new /obj/item/rogueweapon/sword/sabre, SLOT_BELT_R)
 			H.equip_to_slot_or_del(new /obj/item/rogueweapon/shield/heater, SLOT_BACK_L)
 			H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_EXPERT)
 			H.adjust_skillrank_up_to(/datum/skill/combat/shields, SKILL_LEVEL_EXPERT)
-		if("Greataxe")
-			H.equip_to_slot_or_del(new /obj/item/rogueweapon/greataxe/silver, SLOT_HANDS)
-			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/gwstrap, SLOT_BACK_L)
+		if("Battleaxe & Shield")
+			H.equip_to_slot_or_del(new /obj/item/rogueweapon/stoneaxe/battle, SLOT_BELT_R)
+			H.equip_to_slot_or_del(new /obj/item/rogueweapon/shield/heater, SLOT_BACK_L)
 			H.adjust_skillrank_up_to(/datum/skill/combat/axes, SKILL_LEVEL_EXPERT)
+			H.adjust_skillrank_up_to(/datum/skill/combat/shields, SKILL_LEVEL_EXPERT)
+		if("Crossbow and Falchion")
+			H.equip_to_slot_or_del(new /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow, SLOT_BACK_L)
+			H.equip_to_slot_or_del(new /obj/item/rogueweapon/sword/short/falchion, SLOT_HANDS)
+			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/sword, SLOT_BELT_L)
+			H.equip_to_slot_or_del(new /obj/item/quiver/bolts, SLOT_BELT_R)
+			H.adjust_skillrank_up_to(/datum/skill/combat/crossbows, SKILL_LEVEL_EXPERT)
+			H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_EXPERT)
 
-/datum/advclass/mercenary/forlorn/illuminary
+/datum/advclass/mercenary/forlorn_illuminary
 	name = "Forlorn Hope Illuminary"
 	tutorial = "Once upon a time, you were blessed by the moon and stars, gifted of arcyne prowess, the finest young initiate to the Order. \
 	Once upon a time, you were a mere peasant in a poor village, at night you'd look up to the moon and pray; there must be more to this world. \
@@ -101,29 +108,28 @@
 		/datum/species/lupian,
 		/datum/species/vulpkanin
 	)
-	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
-	outfit = /datum/outfit/job/roguetown/mercenary/forlorn
-	class_select_category = CLASS_CAT_RACIAL
+	outfit = /datum/outfit/job/roguetown/mercenary/forlorn_illuminary
 	min_pq = 2
 	cmode_music = 'sound/music/combat_blackstar.ogg'
+	class_select_category = CLASS_CAT_RACIAL
 	category_tags = list(CTAG_MERCENARY)
-	traits_applied = list(TRAIT_MAGEARMOR, TRAIT_ARCYNE_T3, TRAIT_NOPAINSTUN, TRAIT_STEELHEARTED)
+	traits_applied = list(TRAIT_MAGEARMOR, TRAIT_ARCYNE_T3, TRAIT_ALCHEMY_EXPERT)
 	subclass_stats = list(
 		STATKEY_INT = 3,
 		STATKEY_WIL = 2,
 		STATKEY_SPD = 2,
 		STATKEY_CON = 1,
 	)
-	subclass_spellpoints = 15
+	subclass_spellpoints = 20 // You don't start with anything.
 	subclass_skills = list(
 		/datum/skill/magic/arcane = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/swords = SKILL_LEVEL_JOURNEYMAN,
-		/datum/skill/combat/knives = SKILL_LEVEL_NOVICE,
+		/datum/skill/combat/knives = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/wrestling = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/combat/unarmed = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/athletics = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/climbing = SKILL_LEVEL_JOURNEYMAN,
-		/datum/skill/misc/medicine = SKILL_LEVEL_NOVICE,
+		/datum/skill/misc/medicine = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/reading = SKILL_LEVEL_MASTER,
 		/datum/skill/misc/riding = SKILL_LEVEL_NOVICE,
 		/datum/skill/misc/sneaking = SKILL_LEVEL_APPRENTICE,
@@ -131,38 +137,46 @@
 		/datum/skill/craft/alchemy = SKILL_LEVEL_APPRENTICE,
 	)
 
-/datum/outfit/job/roguetown/mercenary/forlorn/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/mercenary/forlorn_illuminary
+	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
+
+/datum/outfit/job/roguetown/mercenary/forlorn_illuminary/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
-	neck = /obj/item/clothing/neck/roguetown/gorget/forlorncollar
-	head = /obj/item/clothing/head/roguetown/helmet/heavy/volfplate
-	pants = /obj/item/clothing/under/roguetown/splintlegs
+	neck = /obj/item/clothing/neck/roguetown/gorget/forlorncollar/steel
+	head = /obj/item/clothing/head/roguetown/helmet/heavy/volfplate // The helmet is iconic
+	pants = /obj/item/clothing/under/roguetown/trou/leather
 	gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
-	wrists = /obj/item/clothing/wrists/roguetown/splintarms
 	belt = /obj/item/storage/belt/rogue/leather
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
-	armor = /obj/item/clothing/suit/roguetown/armor/brigandine/light
+	armor = /obj/item/clothing/suit/roguetown/shirt/robe/tabardblack
 	backr = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(
-		/obj/item/roguekey/mercenary = 1,
-		/obj/item/rogueweapon/huntingknife/idagger = 1,
-		/obj/item/spellbook_unfinished/pre_arcyne = 1,
-		/obj/item/rogueweapon/scabbard/sheath = 1,
-		/obj/item/storage/belt/rogue/pouch/coins/poor
-		)
+	beltl = /obj/item/rogueweapon/scabbard/sheath
+	beltr = /obj/item/rogueweapon/huntingknife/idagger/silver/arcyne
+
 	H.merctype = 5
 
+	if(H.patron?.type == /datum/patron/divine/noc)
+		H.equip_to_slot_or_del(new /obj/item/clothing/neck/roguetown/psicross/noc, SLOT_WRISTS)
+		backpack_contents = list(
+			/obj/item/roguekey/mercenary = 1,
+			/obj/item/book/spellbook = 1,
+			/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
+		)
+	if(H.patron?.type == /datum/patron/inhumen/zizo)
+		backpack_contents = list(
+			/obj/item/roguekey/mercenary = 1,
+			/obj/item/book/spellbook = 1,
+			/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
+			/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy = 1,
+		)
+
 	if(H.age == AGE_OLD)
-		H.adjust_skillrank_up_to(/datum/skill/magic/arcane, 5, TRUE)
+		H.adjust_skillrank_up_to(/datum/skill/magic/arcane, SKILL_LEVEL_MASTER)
+		H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_EXPERT)
 		H.change_stat(STATKEY_SPD, -1)
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_PER, 1)
-		H.mind?.adjust_spellpoints(4)
-	if(H.mind) // FIX THIS
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/giants_strength)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/longstrider)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/guidance)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/haste)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/fortitude)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/forcewall/greater)
-
+		H.mind?.adjust_spellpoints(6)
+	if(H.mind)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)

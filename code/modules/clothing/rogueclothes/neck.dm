@@ -349,7 +349,13 @@
 /obj/item/clothing/neck/roguetown/gorget/forlorncollar
 	name = "vreccale"
 	desc = "Nature knows not of mercy."
-	icon_state = "iwolfcollaralt"
+	icon_state = "iwolfcollar"
+
+/obj/item/clothing/neck/roguetown/gorget/forlorncollar/steel
+	name = "steel vreccale"
+	smeltresult = /obj/item/ingot/steel
+	max_integrity = ARMOR_INT_SIDE_STEEL
+	icon_state = "swolfcollar"
 
 /obj/item/clothing/neck/roguetown/gorget/steel
 	name = "steel gorget"

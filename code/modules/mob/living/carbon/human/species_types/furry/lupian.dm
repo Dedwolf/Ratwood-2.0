@@ -5,12 +5,13 @@
 	name = "Lupian"
 	id = "lupian"
 	desc = "<b>Lupian</b><br>\
-	Lupians are the sons and daughters of Noc. They are a volf-like people hailing from the Northern Regions of the world. \
-	They are resilient, cunning and fight ready creachures capable of surviving the north thanks to their rugged pelts, \
+	Lupians are the self-proclaimed sons and daughters of Noc, a volf-like people hailing from the Northern Regions of the world. \
+	They are resilient, cunning and fight ready creachures capable of surviving the sub-arctic thanks to their rugged pelts, \
 	sharp teeth and deep-rooted spirit of community. They are very dutiful individuals and make fantastic and fearsome \
 	warriors to those who earn their loyalty. Thanks to their pack minded nature they are slow to trust the other races \
-	but form deep connections with those they do. In recent years they have been driven from the forests by unrest and the \
-	inevitable spread of the rot and pressed into cohabitation with races they'd deem lesser.<br>\
+	and even slower to trust those of other packs, but form deep connections with those they do. In recent years they have \
+	been driven from the forests by unrest and the inevitable spread of the rot and pressed into cohabitation with the packs \
+	and races they'd deem lesser.<br>\
 	(+1 Constitution, +1 Intelligence, Sleuth Trait)"
 	
 	expanded_desc = "Lupians live under elective monarchies, forms of feudalism where the king of a pack is chosen from, and by, the military council. \
@@ -23,7 +24,7 @@
 	Vakran was once the largest of the pack-nations, the capital of Lupian civilization. After the King sequestered himself away under \
 	insurmountable stress and went into hiding, it was revealed weeks later that he was poisoned by one of his sons. This plunged the \
 	nation states under the Vakran name into chaos. Vassals left, either becoming free or aligning themselves with the neighboring \
-	Frostfell or Felsaad, while others faced internal strife, civils wars between those who believed the Vakran name still held strong, \
+	Frostfell or Felsaad, while others faced internal strife, civil wars between those who believed the Vakran name still held strong, \
 	and those who saw the crown tainted, even the military council decimated itself between duels and the pitting of coups."
 	skin_tone_wording = "Pack"
 	species_traits = list(
