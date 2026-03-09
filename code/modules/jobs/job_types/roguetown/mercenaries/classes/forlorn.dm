@@ -100,9 +100,8 @@
 	Once upon a time, you found yourself surrounded by death, the Monastery on fire, you couldn't live up to all they had hoped; and you learned \
 	a valuable lesson all the same. \
 	\
-	To live in comfort is to know half of the truth. You were not special, you were nobody, you were ignorant. You know that now. You know this \
-	world knows not of mercy, you know through fields of rot and death and desolation, that Once upon a time, when the end draws near you will \
-	find yourself, met by moonlight, and pray; Let this be enough." 
+	You were not special, you were nobody, you were ignorant. You know that now. You know this world knows not of mercy, you know through fields \
+	of rot and death and desolation, that Once upon a time, when the end draws near you will find yourself, met by moonlight, and pray; Let this be enough." 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		/datum/species/lupian,
@@ -120,7 +119,7 @@
 		STATKEY_SPD = 2,
 		STATKEY_CON = 1,
 	)
-	subclass_spellpoints = 20 // You don't start with anything.
+	subclass_spellpoints = 21 // Same as Magician Associate and Hedgemage
 	subclass_skills = list(
 		/datum/skill/magic/arcane = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/swords = SKILL_LEVEL_JOURNEYMAN,
@@ -145,26 +144,29 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 	neck = /obj/item/clothing/neck/roguetown/gorget/forlorncollar/steel
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/volfplate // The helmet is iconic
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
 	belt = /obj/item/storage/belt/rogue/leather
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
-	armor = /obj/item/clothing/suit/roguetown/shirt/robe/tabardblack
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
+	cloak = /obj/item/clothing/suit/roguetown/shirt/robe/tabardblack
 	backr = /obj/item/storage/backpack/rogue/satchel
-	beltl = /obj/item/rogueweapon/scabbard/sheath
-	beltr = /obj/item/rogueweapon/huntingknife/idagger/silver/arcyne
+	beltl = /obj/item/storage/magebag
+	beltr = /obj/item/rogueweapon/huntingknife/idagger/silver
 
 	H.merctype = 5
 
 	if(H.patron?.type == /datum/patron/divine/noc)
 		H.equip_to_slot_or_del(new /obj/item/clothing/neck/roguetown/psicross/noc, SLOT_WRISTS)
 		backpack_contents = list(
+			/obj/item/rogueweapon/scabbard/sheath = 1,
 			/obj/item/roguekey/mercenary = 1,
 			/obj/item/book/spellbook = 1,
 			/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 		)
 	if(H.patron?.type == /datum/patron/inhumen/zizo)
 		backpack_contents = list(
+			/obj/item/rogueweapon/scabbard/sheath = 1,
 			/obj/item/roguekey/mercenary = 1,
 			/obj/item/book/spellbook = 1,
 			/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
